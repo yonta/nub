@@ -92,6 +92,17 @@ public class Evaluator implements AstNode.ExpressionVisitor<Object> {
     }
 
     @Override
+    public Object visitSingleOperation(AstNode.SingleOperation node) {
+        switch (node.operator()) {
+            case "++": {
+                return asInt(node.hs().accept(this)) + 1;
+            }
+            default:
+                throw new RuntimeException("cannot reach here");
+        }
+    }
+
+    @Override
     public Integer visitNumber(AstNode.Number node) {
         return node.value();
     }

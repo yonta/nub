@@ -110,6 +110,7 @@ primary returns [AstNode.Expression e]
     | '(' x=expression ')' {$e = $x.e;}
     | ifExpression {$e = $ifExpression.e;}
     | whileExpression {$e = $whileExpression.e;}
+    | v=identifier op='++' {$e = new AstNode.SingleOperation($op.getText(), $v.e);}
     ;
 
 identifier returns [AstNode.Identifier e]
