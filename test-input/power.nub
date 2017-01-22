@@ -1,0 +1,13 @@
+let a = 2;
+let b = 3;
+let c = a ** b;
+println(c);
+
+let d = 4 ** 3 ** 2;
+println(d);
+
+let e = 4 ** (3 ** 2);
+println(e);
+
+let f = (4 ** 3) ** 2;
+println(f);

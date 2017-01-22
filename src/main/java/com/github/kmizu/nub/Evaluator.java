@@ -86,6 +86,12 @@ public class Evaluator implements AstNode.ExpressionVisitor<Object> {
                 Integer value1 = asInt(node.lhs().accept(this));
                 return (!value1.equals(0)) ? value1 : node.rhs().accept(this);
             }
+            case "**": {
+                Integer lvalue = asInt(node.lhs().accept(this));
+                Integer rvalue = asInt(node.rhs().accept(this));
+                Double d = Math.pow(asInt(lvalue), asInt(rvalue));
+                return d.intValue();
+            }
             default:
                 throw new RuntimeException("cannot reach here");
         }
